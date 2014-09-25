@@ -61,7 +61,27 @@ $(document).on('ready', function() {
 	var date = now.getDate();
 	var month = now.getMonth();
 	var year = now.getYear();
-	var dayDayblock = $('<div class="day"></div>')
+
+	var dayName = function(d){
+		if (d === 0){
+			return 'Sunday';
+		} else if (d === 1){
+			return 'Monday';
+		} else if (d === 2){
+			return 'Tuesday';
+		} else if (d === 3){
+			return 'Wednesday';
+		} else if (d === 4){
+			return 'Thursday';
+		} else if (d === 5){
+			return 'Friday';
+		} else {
+			return 'Saturday';
+		} 
+	};
+
+	var dateString = $(day + ' ' + month + ' ' date + ' ' + year);
+	var dayDayblock = $('<div class="day"></div>');
 
 	$('.main').append(day);
 	$(dayBlock).text(now);
