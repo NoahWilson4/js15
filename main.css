@@ -1,0 +1,120 @@
+.main {
+	background: rgb(189, 178, 178);
+	width: 700px;
+	margin: auto;
+	margin-top: 20px;
+	border: 1px solid gray;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+/*.week {
+	background: tan;
+	width: 660px;
+	margin: auto;
+	margin-top:;
+	padding: 0px 10px;
+	border: 1px solid white;
+	border-radius: 5px;
+	overflow: hidden;
+
+}
+
+.day {*/
+	/*background: -webkit-linear-gradient(black, blue, purple, orange, yellow, yellow, yellow, orange, purple, blue, black);*/
+	/*background: white;
+	width: 620px;
+	height: 140px;
+	margin: 10px auto;
+	border: gray solid 1px;
+	border-radius: 5px;
+	position: relative;
+	overflow: hidden;
+	
+	
+}
+
+.day-word {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	color: darkred;
+	font-size: 20px;
+}
+
+.date {
+	position: absolute;
+	top: 30px;
+	left: 10px;
+	color: gray;
+}
+
+.appointments {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 400px;
+	height: 98px;
+	border: 1px solid lightgray;
+	border-radius: 5px;
+	padding: 10px;
+}*/
+
+
+
+.days-list{
+	background: lightgray;
+	border: 1px solid white;
+	border-radius: 5px;
+	padding: 15px;
+	list-style: none;
+	
+}
+
+.day {
+	color: darkred;
+	background: rgb(241, 241, 241);
+	border: 1px solid white;
+	padding: 15px;
+	border-radius: 10px;
+	margin: 10px;
+	height: 70px;
+	font-size: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
