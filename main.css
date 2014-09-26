@@ -62,37 +62,128 @@
 
 
 
-.days-list{
+/*.days-list{
 	background: lightgray;
 	border: 1px solid white;
 	border-radius: 5px;
 	padding: 15px;
 	list-style: none;
 	
-}
+}*/
 
 .day {
+	position: relative;
 	color: darkred;
 	background: rgb(241, 241, 241);
 	border: 1px solid white;
 	padding: 15px;
-	border-radius: 10px;
+	border-radius: 2px;
 	margin: 10px;
-	height: 70px;
+	height: 100px;
 	font-size: 25px;
 }
 
+.appointments {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 350px;
+	height: 90px;
+	border: 1px solid lightgray;
+	border-radius: 5px;
+	padding: 10px;
+	background: white;
+	font-size: 15px;
+	overflow: hidden;
+}
+
+.add-appointment {
+	position: absolute;
+	top: 82px;
+	left: 175px;
+	width: 110px;
+	font-size: 15px;
+	border: none;
+	background: rgb(211, 123, 123);
+	border-radius: 10px;
+	color: white;
+}
+.add-gray {
+	.background: lightgray;
+}
+.submit-appointment {
+	position: absolute;
+	top: 82px;
+	left: 175px;
+	width: 110px;
+	font-size: 15px;
+	border: none;
+	background: red;
+	border-radius: 10px;
+	color: white;
+}
+
+.appointment-form {
+	position: relative;
+}
+.appointment-time {
+	padding: 0px;
+	display: inline;
+	position: relative;
+	margin-right: 10px;
+	top: -7px;
+	width: 100px;
+}
+
+.appointment-text {
+	width: 230px;
+height: 21px;
+position: relative;
+top: 2px;
+}
+
+.background-gray {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: black;
+	opacity: .3;
+}
+
+.lightbox-day {
+	width: 300px;
+	position: absolute;
+	top: 300px;
+	right: 400px;
+	height: 500px;
+}
+
+.delete {
+	width: 14px;
+height: 13px;
+border-radius: 3px;
+color: rgb(77, 109, 158);
+font-size: 12px;
+float: left;
+position: relative;
+top: -15px;
+margin-right: 5px;
+border: none;
+padding: 0;
+}
 
 
+.info{
+	display: inline;
+}
 
 
-
-
-
-
-
-
-
+.appointment {
+	position: relative;
+	left: 20px;
+}
 
 
 

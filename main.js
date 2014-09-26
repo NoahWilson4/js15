@@ -55,36 +55,248 @@ $(document).on('ready', function() {
 
 	// });
 
-	// var now = moment();
-	var now = new Date($.now());
-	var day = now.getDay();
-	var date = now.getDate();
-	var month = now.getMonth();
-	var year = now.getYear();
+	// prior to  moment.js///////////////////////////////////////
 
-	var dayName = function(d){
-		if (d === 0){
-			return 'Sunday';
-		} else if (d === 1){
-			return 'Monday';
-		} else if (d === 2){
-			return 'Tuesday';
-		} else if (d === 3){
-			return 'Wednesday';
-		} else if (d === 4){
-			return 'Thursday';
-		} else if (d === 5){
-			return 'Friday';
-		} else {
-			return 'Saturday';
-		} 
+	// var now = new Date($.now());
+	// var dayIndex = now.getDay();
+	// var dateIndex = now.getDate();
+	// var monthIndex = now.getMonth();
+	// var year = now.getYear();
+
+	// var dayName = function(d){
+	// 	if (d === 0){
+	// 		return 'Sunday';
+	// 	} else if (d === 1){
+	// 		return 'Monday';
+	// 	} else if (d === 2){
+	// 		return 'Tuesday';
+	// 	} else if (d === 3){
+	// 		return 'Wednesday';
+	// 	} else if (d === 4){
+	// 		return 'Thursday';
+	// 	} else if (d === 5){
+	// 		return 'Friday';
+	// 	} else {
+	// 		return 'Saturday';
+	// 	} 
+	// };
+
+	// var monthName = function(m) {
+	// 	if (m = 0) {
+	// 		return 'January';
+	// 	} else if (m = 1){
+	// 		return 'February';
+	// 	} else if (m = 2){
+	// 		return 'March';
+	// 	} else if (m = 3){
+	// 		return 'April';
+	// 	} else if (m = 4){
+	// 		return 'May';
+	// 	} else if (m = 5){
+	// 		return 'June';
+	// 	} else if (m = 6){
+	// 		return 'July';
+	// 	} else if (m = 7){
+	// 		return 'August';
+	// 	} else if (m = 8){
+	// 		return 'September';
+	// 	} else if (m = 9){
+	// 		return 'October';
+	// 	} else if (m = 10){
+	// 		return 'November';
+	// 	} else {
+	// 		return 'December';
+	// 	}
+	// };
+
+	// var dateExtension = function(d) {
+	// 	s = d.toString().split('');
+	// 	y = s.pop();
+	// 	var extension = '';
+	// 	if (y = 0 || y > 3){
+	// 		extension = 'th';
+	// 	} else if (y = 1){
+	// 		extension = 'st';
+	// 	} else if (y = 2){
+	// 		extension = 'nd';
+	// 	} else {
+	// 		extension = 'rd';
+	// 	};
+	// 	return d + extension;
+	// };
+
+	// var yearConversion = function(y) {
+	// 	var s = y.toString().split('');
+	// 	s.shift();
+	// 	s.toString();
+	// 	console.log('20' + s);
+	// }
+	// yearConversion(year);
+
+	// var day = dayName(dayIndex);
+	// var month = monthName(monthIndex);
+	// var date = dateExtension(dateIndex);
+	// var year = 
+
+	// console.log(day);
+	// console.log(month);
+	// console.log(date);
+	// // console.log(year);
+
+	// var dateString = $(day + ' ' + month + ' ' + date + ', ' + year);
+	// console.log(dateString);
+	// var dayblock = $('<div class="day"></div>');
+
+	// $('.main').append(day);
+	// $(dayBlock).text(now);
+	// var now = new Date($.now());
+	// var dayIndex = now.getDay();
+	// var dayName = function(d){
+	// 	if (d === 0){
+	// 		return 'Sunday';
+	// 	} else if (d === 1){
+	// 		return 'Monday';
+	// 	} else if (d === 2){
+	// 		return 'Tuesday';
+	// 	} else if (d === 3){
+	// 		return 'Wednesday';
+	// 	} else if (d === 4){
+	// 		return 'Thursday';
+	// 	} else if (d === 5){
+	// 		return 'Friday';
+	// 	} else {
+	// 		return 'Saturday';
+	// 	} 
+	// };
+	// var day = dayName(dayIndex);
+
+
+	// var today = moment().format('ll');
+	// console.log(today);
+	var datePlus = -1;
+	var listDay = $('<div class="day"></div>');
+	// var addAppointmentForm = $('<form class="appointment-form"><input type="time" class="appointment-time"><textarea class="appointment-text"></textarea></form>')
+	
+	var dateMaker = function (){
+		var d = moment().add(datePlus, 'days').format("MMM Do YY");
+		datePlus = datePlus + 1;
+		return d;
+	}
+	var date = dateMaker();
+	
+	var addDay = function(){
+		date = dateMaker();
+		listDay = listDay.clone();
+		$('.calendar').append(listDay);
+		$(listDay).text(date);
+		$(listDay).append('<div class="appointments"><div class="title">Appointments:</div></div><button type="button" class="add-appointment">Add Appointment</button>');
 	};
+	
+	addDay();
+	addDay();
+	addDay();
+	addDay();
+	addDay();
+	addDay();
+	addDay();
+	addDay();
 
-	var dateString = $(day + ' ' + month + ' ' date + ' ' + year);
-	var dayDayblock = $('<div class="day"></div>');
+	$(document).scroll(function(){
+			var appendNewLocation = $(window).height();
+			var bottom = $(document).scrollTop() + appendNewLocation;
+			if (bottom > appendNewLocation){
+				appendNewLocation = appendNewLocation + 110;
+				addDay();
+				}
+		});	
 
-	$('.main').append(day);
-	$(dayBlock).text(now);
+	$(document).on('click', '.add-appointment', function(){
+		
+		var timeInfo = '';
+		var textInfo = '';
+		var submittedInfo = '';
+		var addAppointmentForm = $('<form class="appointment-form"><input type="time" class="appointment-time"><textarea class="appointment-text"></textarea></form>');
+		var info = $('<div class="appointment"><button class="delete"></button><div class="info"></div></div>');
+		var deleteButton = $('<button class="delete"></button>');
+		
+		$(this).closest('.day').find(info).text('');
+
+		$(this).closest('.day').append('<button type="button" class="submit-appointment">Add Appointment</button>');
+		$(this).closest('.day').find('.appointments').append(addAppointmentForm);
+		$(this).closest('.day').find('.appointment-form').show();
+		$(this).closest('.day').find('.appointment-time').on('blur', function(){
+			timeInfo = $(this).closest('.day').find('.appointment-time').val();
+		});
+		$(this).closest('.day').find('.appointment-text').on('blur', function(){
+			textInfo = $(this).closest('.day').find('.appointment-text').val();
+		});
+
+		
+	});
+	
+	
+		
+		
+		$(document).on('click', '.submit-appointment', function(){
+
+			var timeInfo = $(this).closest('.day').find('.appointment-time').val();
+			var textInfo = $(this).closest('.day').find('.appointment-text').val();
+			var info = $('<div class="appointment"><div class="info"></div></div>');
+			var deleteButton = $('<button class="delete"></button>');
+			$(this).closest('.day').find(info).text('');
+			submittedInfo = '\n' + timeInfo + '  ' + textInfo;
+			$(info).text(submittedInfo);
+			$(this).closest('.day').find('.appointments').append(info, deleteButton);
+			$('.delete').text('X');
+			$('.appointment-form').hide();	
+			$('.submit-appointment').hide();
+			$(this).closest('.day').find('.appointment-form').remove();
+
+		});
+
+		$('.delete').on('click', function(){
+			$(this).closest('.appointment').remove();
+		});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
